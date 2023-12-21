@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "951798211378",
+    "project_id": "communityapp-cb94e",
+    "storage_bucket": "communityapp-cb94e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951798211378:android:597de19838089de01cad2b",
+        "android_client_info": {
+          "package_name": "com.example.communityhubapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYnEuBymIbrQhmF9Vi2ImTDYQ_OCqhoNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
