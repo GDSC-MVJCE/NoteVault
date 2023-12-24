@@ -1,4 +1,4 @@
-package com.example.communityhubapp.ui.theme
+package com.example.notevault.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package com.example.communityhubapp.ui.theme
+package com.example.notevault.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.communityhubapp"
+    namespace = "com.example.notevault"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.communityhubapp"
+        applicationId = "com.example.notevault"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

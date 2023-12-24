@@ -1,4 +1,4 @@
-package com.example.communityhubapp
+package com.example.notevault
 
 import org.junit.Test
 
