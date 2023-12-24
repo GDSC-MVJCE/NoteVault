@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -56,13 +57,13 @@ fun AddNoteModal(
                     fontSize = 5.em // Adjusted font size
                 )
                 Spacer(modifier = Modifier.height(8.dp).fillMaxHeight()) // Flexible spacing
-                TextField(
+                OutlinedTextField(
                     value = title,
                     onValueChange = { title = it },
                     label = { Text("Title") }
                 )
 
-                TextField(
+                OutlinedTextField(
                     value = content,
                     onValueChange = { content = it },
                     label = { Text("Content") },
