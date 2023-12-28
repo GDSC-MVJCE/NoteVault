@@ -11,14 +11,16 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
+import androidx.room.Room
+import com.example.notevault.data.NoteDatabase
 import com.example.notevault.data.NoteModel
 import com.example.notevault.ui.theme.CommunityHubAppTheme
 
@@ -42,11 +44,27 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
-    val notes = remember {
-        mutableStateListOf<NoteModel>(
-            NoteModel("Hello","This is a note")
-        )
-    }
+
+    // homework
+    val context = LocalContext.current
+
+    val db = Room.databaseBuilder(
+        context,
+        NoteDatabase::class.java, "note-database"
+    ).allowMainThreadQueries().build()
+
+    var notes = db.noteDao().getAll()
+//    val notes = remember {
+//        mutableStateListOf<NoteModel>(
+//            db.noteDao().getAll()
+//        )
+//    }
+
+//    val notes = remember {
+//        mutableStateListOf<NoteModel>(
+//            NoteModel("Hello","This is a note")
+//        )
+//    }
 
 
     var isAddNoteModalVisible by remember { mutableStateOf(false) }
@@ -76,7 +94,7 @@ fun MainScreen() {
             modifier = Modifier
                 .padding(innerPadding)
         ) {
-            items(notes.toList()) { it ->
+            items(notes){ it ->
                 Card(
                     modifier = Modifier
                         .padding(all = 16.dp)
@@ -101,9 +119,8 @@ fun MainScreen() {
             AddNoteModal(
                 onAddNote = { title,content ->
                     // Handle post creation
-                            notes.add(
-                                NoteModel(title, content)
-                            )
+                    db.noteDao().insert(NoteModel(title=title, content=content))
+                    notes = db.noteDao().getAll()
                     // You may want to update your ViewModel or perform other actions
                     // based on the data received from the form
                 },
